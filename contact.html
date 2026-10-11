@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt i upit za telefon | VIP Mobile Beograd</title>
+  <meta name="description" content="Pošalji upit za kupovinu, otkup ili servis telefona u četiri kratka koraka, ili pozovi VIP Mobile na 061/2047 543. Luke Ćelovića Trebinjca 32, BW Scala.">
+  <!-- Domen je privremen: zameni ga pravim domenom pre objave sajta -->
+  <link rel="canonical" href="https://www.vipmobilebgd.rs/contact.html">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" href="images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono&family=Inter&family=Michroma&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="index.html" aria-label="VIP Mobile, početna">
+        <img src="images/logo.jpg" alt="" width="34" height="34">VIP MOBILE
+      </a>
+      <nav class="nav__links" aria-label="Glavna navigacija">
+        <a href="index.html">Početna</a>
+        <a href="proizvodi.html">Proizvodi</a>
+        <a href="index.html#usluge">Otkup i servis</a>
+        <a href="contact.html" aria-current="page">Pošalji upit</a>
+      </nav>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Otvori meni">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="menu" id="menu" aria-label="Mobilni meni">
+    <a href="index.html">Početna</a>
+    <a href="proizvodi.html">Proizvodi</a>
+    <a href="index.html#usluge">Otkup i servis</a>
+    <a href="index.html#poseta">Gde smo</a>
+    <a href="contact.html">Pošalji upit</a>
+    <div class="menu__foot">
+      <span class="mono">Pon-pet 10-20h, sub 10-18h</span>
+      <a class="btn btn--gold" href="tel:+381612047543">Pozovi 061/2047 543</a>
+    </div>
+  </nav>
+
+  <main id="sadrzaj">
+    <section class="page-head">
+      <div class="rock rock--l" data-rock="27"></div>
+      <div class="ghost" data-drift="0.04" aria-hidden="true">Kontakt</div>
+      <div class="wrap page-head__body">
+        <p class="mono">Kontakt</p>
+        <h1 class="display h-xl">Pošalji upit</h1>
+        <p class="lead dim">Tri kratka pitanja i tvoji podaci. Traje oko minut.</p>
+      </div>
+    </section>
+
+    <div class="wrap contact">
+      <aside class="contact__side">
+        <div class="contact__img">
+          <img src="images/vlasnik-telefoni-kauc.jpg" alt="Vlasnik radnje VIP Mobile drži tri iPhone telefona u narandžastoj, plavoj i srebrnoj boji" width="1350" height="1800">
+        </div>
+        <dl class="facts" style="grid-template-columns:1fr">
+          <div><dt class="mono">Brže od forme</dt><dd><a href="tel:+381612047543">061/2047 543</a> (poziv, Viber, WhatsApp)</dd></div>
+          <div><dt class="mono">Email</dt><dd><a href="mailto:vipmobilebgd@gmail.com">vipmobilebgd@gmail.com</a></dd></div>
+          <div><dt class="mono">Adresa</dt><dd>Luke Ćelovića Trebinjca 32, BW Scala<br>11010 Beograd</dd></div>
+          <div><dt class="mono">Radno vreme</dt><dd>Pon-pet 10-20h, subota 10-18h</dd></div>
+        </dl>
+      </aside>
+
+      <section class="wizard" aria-labelledby="upit-naslov">
+        <h2 class="sr-only" id="upit-naslov">Forma za upit</h2>
+        <div class="wizard__top">
+          <span class="mono" data-step-count aria-live="polite">Korak 1 od 4</span>
+          <ol class="dots" aria-hidden="true"><li></li><li></li><li></li><li></li></ol>
+        </div>
+
+        <form novalidate>
+          <fieldset class="wstep is-active">
+            <legend class="display h-md">Šta ti treba?</legend>
+            <input type="hidden" name="service" value="">
+            <div class="choices choices--2">
+              <button class="choice" type="button" data-value="Kupovina novog telefona" aria-pressed="false">Nov telefon</button>
+              <button class="choice" type="button" data-value="Kupovina polovnog telefona" aria-pressed="false">Polovan telefon</button>
+              <button class="choice" type="button" data-value="Otkup telefona" aria-pressed="false">Prodajem telefon</button>
+              <button class="choice" type="button" data-value="Zamena staro za novo" aria-pressed="false">Staro za novo</button>
+              <button class="choice" type="button" data-value="Servis telefona" aria-pressed="false">Servis</button>
+              <button class="choice" type="button" data-value="Drugo pitanje" aria-pressed="false">Nešto drugo</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="wstep">
+            <legend class="display h-md">Koji telefon je u pitanju?</legend>
+            <div class="field">
+              <label for="model">Model ili budžet</label>
+              <input id="model" name="model" type="text" maxlength="80" autocomplete="off" placeholder="npr. iPhone 18 Pro ili budžet 350 €">
+            </div>
+            <p class="dim">Ako nisi siguran, ostavi prazno i idi dalje.</p>
+          </fieldset>
+
+          <fieldset class="wstep">
+            <legend class="display h-md">Kada ti treba?</legend>
+            <input type="hidden" name="timing" value="">
+            <div class="choices">
+              <button class="choice" type="button" data-value="Danas ili sutra" aria-pressed="false">Danas ili sutra</button>
+              <button class="choice" type="button" data-value="Ove nedelje" aria-pressed="false">Ove nedelje</button>
+              <button class="choice" type="button" data-value="Samo se raspitujem" aria-pressed="false">Samo se raspitujem</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="wstep">
+            <legend class="display h-md">Kako da ti se javimo?</legend>
+            <div class="field">
+              <label for="name">Ime</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+              <span class="err" role="alert"></span>
+            </div>
+            <div class="field">
+              <label for="phone">Telefon</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+              <span class="err" role="alert"></span>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+              <span class="err" role="alert"></span>
+            </div>
+            <div class="field">
+              <label for="message">Poruka (nije obavezno)</label>
+              <textarea id="message" name="message" maxlength="1000"></textarea>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="website">Ne popunjavaj ovo polje</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <p class="dim">Podatke koristimo samo da ti odgovorimo. <a href="privacy.html">Politika privatnosti</a></p>
+          </fieldset>
+
+          <div class="wizard__nav">
+            <button class="btn btn--line" type="button" data-back hidden>Nazad</button>
+            <button class="btn btn--gold" type="button" data-next>Nastavi</button>
+            <button class="btn btn--gold" type="submit" data-submit hidden>Pošalji upit</button>
+          </div>
+          <p class="wizard__msg" role="alert"></p>
+        </form>
+
+        <div class="wizard__done" tabindex="-1">
+          <p class="mono mono--gold">Poslato</p>
+          <p class="display h-md">Upit je stigao.</p>
+          <p class="dim">Javljamo ti se u radno vreme, od ponedeljka do petka od 10 do 20h i subotom od 10 do 18h. Ako je hitno, pozovi 061/2047 543.</p>
+          <a class="btn btn--line" href="proizvodi.html">Vrati se na ponudu</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <a class="nav__logo" href="index.html"><img src="images/logo.jpg" alt="" width="34" height="34">VIP MOBILE</a>
+          <p class="dim">Prodaja, otkup i servis telefona.<br>Belgrade Waterfront, BW Scala.</p>
+        </div>
+        <div class="footer__col">
+          <p class="mono">Sajt</p>
+          <a href="proizvodi.html">Proizvodi</a>
+          <a href="index.html#usluge">Otkup i servis</a>
+          <a href="contact.html">Pošalji upit</a>
+        </div>
+        <div class="footer__col">
+          <p class="mono">Mreže</p>
+          <a href="https://www.instagram.com/vipmobile_bgd/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@vip_mobile_bgd" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.facebook.com/p/VIP-Mobile-BGD-100093130002308/" target="_blank" rel="noopener">Facebook</a>
+        </div>
+        <div class="footer__col">
+          <p class="mono">Kontakt</p>
+          <a href="tel:+381612047543">061/2047 543</a>
+          <a href="mailto:vipmobilebgd@gmail.com">vipmobilebgd@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="mono">&copy; <span data-year>2026</span> VIP Mobile BGD</span>
+        <span class="mono footer__credit">Izrada sajta: <a href="https://www.instagram.com/seventytwodevelop/" target="_blank" rel="noopener"><strong>SeventyTwoDevelop</strong></a></span>
+        <a class="mono" href="privacy.html">Politika privatnosti</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
