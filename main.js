@@ -181,9 +181,66 @@ if (wizard) {
   const msg = wizard.querySelector('.wizard__msg');
   let index = 0;
 
-  // Dolazak sa stranice proizvoda: model je već upisan
+  // Dolazak sa stranice proizvoda: model je već upisan, a ako ga prepoznamo
+  // prikazujemo karticu sa slikom i cenom i preskačemo prva dva pitanja
   const preset = new URLSearchParams(location.search).get('model');
   if (preset && form.elements.model) form.elements.model.value = preset.slice(0, 80);
+
+  // Cene su iz Instagram objava; menjaj ih ovde i u proizvodi.html
+  const PRODUCTS = [
+    ['iPhone 18 Pro 256GB eSIM Burgundy', 'iphone-18-pro-burgundy', '1.360 € / 161.000 din', 'nov'],
+    ['iPhone 18 Pro 256GB eSIM', 'iphone-18-pro-glacier', '1.299 € / 154.000 din', 'nov'],
+    ['iPhone 18 Pro Max', 'iphone-18-pro-max-black', 'Cena na upit', 'nov'],
+    ['iPhone 18 Pro', 'iphone-18-pro-burgundy', 'od 1.299 €', 'nov'],
+    ['Samsung Galaxy S26 Ultra', 'galaxy-s26-ultra-black', 'Cena na upit', 'nov'],
+    ['Samsung Galaxy S25 Ultra', 'galaxy-s25-ultra-gray', 'Cena na upit', 'nov'],
+    ['iPhone 17 Pro Max', 'iphone-17-pro-max-orange', '950 do 1.050 €', 'polovan'],
+    ['iPhone 17 Pro', 'iphone-17-pro-silver', 'Cena na upit', 'polovan'],
+    ['iPhone 16 Pro Max', 'iphone-16-pro-max-desert', 'oko 750 €', 'polovan'],
+    ['iPhone 14 Pro', 'iphone-14-pro-purple', 'Cena na upit', 'polovan'],
+    ['iPhone 14 Plus', 'iphone-14-plus-blue', 'oko 350 €', 'polovan'],
+    ['iPhone 13 Pro Max', 'iphone-13-pro-max-blue', 'oko 350 €', 'polovan'],
+    ['iPhone 14', 'iphone-14-midnight', '300 €', 'polovan'],
+    ['iPhone 13', 'iphone-13-blue', '250 €', 'polovan']
+  ];
+  // Lista je poređana od dužeg naziva ka kraćem, pa prvi pogodak je i najtačniji
+  const product = preset ? PRODUCTS.find(([name]) => preset.toLowerCase().startsWith(name.toLowerCase())) : null;
+  const orderCard = wizard.querySelector('.order');
+
+  if (product && orderCard) {
+    const [, file, price, state] = product;
+    orderCard.querySelector('[data-order-img]').src = `images/telefoni/${file}.png`;
+    orderCard.querySelector('[data-order-name]').textContent = preset;
+    orderCard.querySelector('[data-order-price]').textContent = price;
+    orderCard.hidden = false;
+
+    const service = state === 'nov' ? 'Kupovina novog telefona' : 'Kupovina polovnog telefona';
+    form.elements.service.value = service;
+    steps[0].querySelectorAll('.choice').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.value === service)));
+    index = 2;
+  }
+
+  // Isti upit kao poruka za WhatsApp ili Viber, da porudžbina stigne i bez email forme
+  const orderMessage = () => {
+    const v = (name) => form.elements[name].value.trim();
+    const lines = ['Zdravo, pišem sa sajta VIP Mobile.'];
+    if (v('service')) lines.push(`Treba mi: ${v('service')}`);
+    if (v('model')) lines.push(`Model: ${v('model')}`);
+    if (v('timing')) lines.push(`Kada: ${v('timing')}`);
+    if (v('name')) lines.push(`Ime: ${v('name')}`);
+    if (v('message')) lines.push(`Poruka: ${v('message')}`);
+    return lines.join('\n');
+  };
+
+  wizard.querySelectorAll('[data-send]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const text = encodeURIComponent(orderMessage());
+      const url = btn.dataset.send === 'viber'
+        ? `viber://chat?number=%2B381612047543&draft=${text}`
+        : `https://wa.me/381612047543?text=${text}`;
+      window.open(url, '_blank', 'noopener');
+    });
+  });
 
   const stepReady = (step) => {
     const hidden = step.querySelector('input[type="hidden"]');
@@ -260,7 +317,7 @@ if (wizard) {
     if (form.elements.website.value) return; // zamka za botove
 
     if (!ENDPOINT) {
-      msg.textContent = `Forma još nije povezana sa prijemnim sandučetom. Pozovi nas na ${PHONE_DISPLAY}.`;
+      msg.textContent = `Slanje na email još nije uključeno. Pošalji isti upit dugmetom WhatsApp ili Viber iznad, ili pozovi ${PHONE_DISPLAY}.`;
       return;
     }
 

@@ -26,7 +26,7 @@
         <a href="index.html">Početna</a>
         <a href="proizvodi.html">Proizvodi</a>
         <a href="index.html#usluge">Otkup i servis</a>
-        <a href="contact.html" aria-current="page">Pošalji upit</a>
+        <a href="contact.html" aria-current="page">Poruči</a>
       </nav>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Otvori meni">
         <span></span><span></span><span></span>
@@ -39,7 +39,7 @@
     <a href="proizvodi.html">Proizvodi</a>
     <a href="index.html#usluge">Otkup i servis</a>
     <a href="index.html#poseta">Gde smo</a>
-    <a href="contact.html">Pošalji upit</a>
+    <a href="contact.html">Poruči</a>
     <div class="menu__foot">
       <span class="mono">Pon-pet 10-20h, sub 10-18h</span>
       <a class="btn btn--gold" href="tel:+381612047543">Pozovi 061/2047 543</a>
@@ -52,8 +52,8 @@
       <div class="ghost" data-drift="0.04" aria-hidden="true">Kontakt</div>
       <div class="wrap page-head__body">
         <p class="mono">Kontakt</p>
-        <h1 class="display h-xl">Pošalji upit</h1>
-        <p class="lead dim">Tri kratka pitanja i tvoji podaci. Traje oko minut.</p>
+        <h1 class="display h-xl">Poruči telefon</h1>
+        <p class="lead dim">Tri kratka pitanja i tvoji podaci. Traje oko minut. Ista forma važi i za otkup i servis.</p>
       </div>
     </section>
 
@@ -72,6 +72,17 @@
 
       <section class="wizard" aria-labelledby="upit-naslov">
         <h2 class="sr-only" id="upit-naslov">Forma za upit</h2>
+        <!-- Kartica sa izabranim telefonom: prikazuje se kad kupac dođe klikom na model u ponudi -->
+        <div class="order" hidden>
+          <img src="images/telefoni/iphone-18-pro-burgundy.png" alt="" width="530" height="640" data-order-img>
+          <div class="order__text">
+            <span class="mono">Poručuješ</span>
+            <p class="display h-sm" data-order-name></p>
+            <p class="order__price" data-order-price></p>
+          </div>
+          <a class="order__change mono" href="proizvodi.html">Promeni</a>
+        </div>
+
         <div class="wizard__top">
           <span class="mono" data-step-count aria-live="polite">Korak 1 od 4</span>
           <ol class="dots" aria-hidden="true"><li></li><li></li><li></li><li></li></ol>
@@ -136,6 +147,13 @@
               <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
             </div>
             <p class="dim">Podatke koristimo samo da ti odgovorimo. <a href="privacy.html">Politika privatnosti</a></p>
+            <div class="quick">
+              <p class="mono">Ili pošalji isti upit odmah, porukom</p>
+              <div class="quick__btns">
+                <button class="btn btn--line" type="button" data-send="whatsapp">WhatsApp</button>
+                <button class="btn btn--line" type="button" data-send="viber">Viber</button>
+              </div>
+            </div>
           </fieldset>
 
           <div class="wizard__nav">
@@ -167,7 +185,7 @@
           <p class="mono">Sajt</p>
           <a href="proizvodi.html">Proizvodi</a>
           <a href="index.html#usluge">Otkup i servis</a>
-          <a href="contact.html">Pošalji upit</a>
+          <a href="contact.html">Poruči</a>
         </div>
         <div class="footer__col">
           <p class="mono">Mreže</p>
@@ -188,6 +206,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- Traka na dnu ekrana, samo na telefonu -->
+  <div class="dock">
+    <a href="tel:+381612047543">Pozovi</a>
+    <a class="dock__main" href="https://wa.me/381612047543" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
 
   <script src="main.js"></script>
 </body>
