@@ -298,7 +298,9 @@ body.menu-open { overflow: hidden; }
 .step__media img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05) brightness(0.8); transition: filter 0.5s; }
 .step:hover .step__media img { filter: none; }
 .step__media--phone { background: radial-gradient(60% 55% at 50% 45%, rgba(255, 255, 255, 0.1), transparent 72%), var(--bg-raise); }
-.step__media--phone img { width: 100%; height: 100%; padding: 8%; object-fit: contain; }
+/* Slika telefona se smešta unutar okvira: apsolutno, da visina okvira ne zavisi od slike */
+.step__media--phone { position: relative; }
+.step__media--phone img { position: absolute; inset: 0; width: 100%; height: 100%; padding: 8%; object-fit: contain; }
 .step__n { font-family: var(--font-display); font-size: 1.3rem; color: var(--white); }
 .step__body { display: grid; gap: 12px; }
 .step__body p { color: var(--mute); font-size: 0.98rem; }
@@ -593,8 +595,9 @@ body.menu-open .dock { display: none; }
     display: grid; position: sticky; top: calc(var(--nav-h) + 24px); gap: 22px; justify-items: center;
     padding: 36px 0; border: 1px solid var(--line); background: radial-gradient(60% 50% at 50% 40%, rgba(255, 255, 255, 0.07), transparent 70%);
   }
-  .catalog__stage .phone { width: 78%; height: 340px; display: grid; place-items: center; }
-  .catalog__stage .phone img { width: auto; max-width: 100%; max-height: 100%; }
+  /* Okvir fiksne visine, slika apsolutno unutra: visoki modeli (iPhone 13, 14) ne izlaze iz kvadrata */
+  .catalog__stage .phone { position: relative; width: 78%; height: 340px; }
+  .catalog__stage .phone img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
   .catalog__stage .mono { text-align: center; }
 
   .row a { grid-template-columns: 44px 1fr auto 28px; grid-template-areas: "n name price go" "n spec price go"; padding: 22px 0; column-gap: 20px; row-gap: 6px; }
