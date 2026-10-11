@@ -6,3 +6,6 @@
 research/
 context.md
 images/reference/
+
+.vercel
+.env*
